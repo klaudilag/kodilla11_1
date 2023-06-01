@@ -8,9 +8,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class LoggerTestSuite {
     @Test
     void testGetLastLog(){
-        Logger.log("Hello");
-        Logger.log("Goodbye");
-        Assertions.assertNotEquals(Logger.getLastLog(), "Hello");
-        Assertions.assertEquals(Logger.getLastLog(),"Goodbye");
+        Logger.INSTANCE.log("Hello");
+        Assertions.assertEquals(Logger.INSTANCE.getLastLog(), "Hello");
+        Logger.INSTANCE.log("Siema");
+        Assertions.assertEquals("Siema", Logger.INSTANCE.getLastLog());
     }
 }
